@@ -1,3 +1,7 @@
+## Build generated
+ios/build/
+ios/DerivedData/
+
 # Xcode
 !**/*.xcodeproj
 !**/*.pbxproj
