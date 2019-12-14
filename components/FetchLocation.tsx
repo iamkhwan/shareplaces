@@ -1,9 +1,27 @@
 import React from 'react';
-import { Button } from 'react-native';
+import { StyleSheet, TouchableHighlight, Text } from 'react-native';
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'green',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    button: {
+        alignItems: 'center',
+        backgroundColor: '#DDDDDD',
+        padding: 10
+      },
+});
 
 const fetchLocation = (props: any) => {
     return (
-        <Button title="Get Location" onPress={props.onGetLocation} />
+        <TouchableHighlight 
+            style={styles.button}
+            onPress={props.onGetLocation}>
+            <Text>Get Location</Text>
+        </TouchableHighlight>
     );
 };
 

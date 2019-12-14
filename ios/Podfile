@@ -45,4 +45,10 @@ target 'shareplaces' do
   use_unimodules!
   pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
 
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+
+  # Google Map
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+
 end
