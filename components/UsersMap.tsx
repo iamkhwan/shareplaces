@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native'; 
+import { View, StyleSheet } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
 const styles = StyleSheet.create({
@@ -15,23 +15,32 @@ const styles = StyleSheet.create({
 });
 
 const usersMap = (props: any) => {
-    let userLocationMarker = null;
+    let userLocationMarker = null, usersMarkers = null;
     if (props.userLocation) {
+        console.log(props.userLocation);
         userLocationMarker = <Marker coordinate={props.userLocation} />;
+    }
+
+    if (props.usersPlaces) {
+        usersMarkers = props.usersPlaces.map((userPlace: any) => {
+            console.log(userPlace);
+            return <Marker coordinate={userPlace} key={userPlace.id} />
+        });
     }
 
     return (
         <View style={styles.mapContianer}>
-            <MapView 
-                style={styles.map} 
+            <MapView
+                style={styles.map}
                 initialRegion={{
-                    latitude: (props.userLocation ? props.userLocation.latitude : 0 ),
-                    longitude: (props.userLocation ? props.userLocation.longitude : 0 ),
+                    latitude: 37.785834,
+                    longitude: -122.406417,
                     latitudeDelta: 0.0622,
                     longitudeDelta: 0.0421
-                }} 
+                }}
                 region={props.userLocation}>
-                    { userLocationMarker }
+                {userLocationMarker}
+                {usersMarkers}
             </MapView>
         </View>
     );
